@@ -63,3 +63,12 @@ Puerto por el que escuchará fluentd en este contenedor. Cuando configuremos rsy
 
 Cuando arranques el contenedor fluentd es necesario que le indiques mediante --link (o links: en fig.yml) cual es el contenedor donde se ejecuta elasticsearch+kibana. 
 
+### Volumen
+
+Directorio persistente para configurar el Timezone. Crear el directorio /Apps/data/tz y dentro de él crear el fichero timezone. Luego montarlo con -v o con fig.yml
+
+    Montar:
+       "/Apps/data/tz:/config/tz"  
+    Preparar: 
+       $ echo "Europe/Madrid" > /config/tz/timezone
+
